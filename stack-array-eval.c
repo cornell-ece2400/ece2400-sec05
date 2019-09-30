@@ -3,19 +3,19 @@
 #include <stddef.h>
 #include <stdio.h>
 
-void init_array( int* array, size_t size )
+void init_array( int* a, size_t size )
 {
   for ( size_t i = 0; i < size; i++ )
-    array[i] = rand() % 1000;
+    a[i] = rand() % 1000;
 }
 
-void init_parray( int** parray, int* array, size_t size )
+void init_parray( int** pa, int* a, size_t size )
 {
   for ( size_t i = 0; i < size; i++ )
-    parray[i] = &(array[i]);
+    pa[i] = &(a[i]);
 }
 
-int avg_array( int* array, size_t size )
+int avg_array( int* a, size_t size )
 {
   //'''' ASSIGNMENT TASK '''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement this function
@@ -24,7 +24,7 @@ int avg_array( int* array, size_t size )
   return 0;
 }
 
-int avg_parray( int** parray, size_t size )
+int avg_parray( int** pa, size_t size )
 {
   //'''' ASSIGNMENt TASK '''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement this function

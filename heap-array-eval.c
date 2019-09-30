@@ -15,11 +15,11 @@ int* rand_array( size_t size )
   return a;
 }
 
-int avg_array( int* array, size_t size )
+int avg_array( int* a, size_t size )
 {
   int sum = 0;
   for ( size_t i = 0; i < size; i++ )
-    sum += array[i];
+    sum += a[i];
   return sum / size;
 }
 

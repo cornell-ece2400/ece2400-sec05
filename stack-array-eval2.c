@@ -3,6 +3,8 @@
 #include <stddef.h>
 #include <stdio.h>
 
+#include <sys/time.h>
+
 void init_array( int* a, size_t size )
 {
   for ( size_t i = 0; i < size; i++ )
@@ -26,7 +28,7 @@ int avg_array( int* a, size_t size )
 
 int avg_parray( int** pa, size_t size )
 {
-  //'''' ASSIGNMENt TASK '''''''''''''''''''''''''''''''''''''''''''''''''
+  //'''' ASSIGNMENT TASK '''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement this function
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 

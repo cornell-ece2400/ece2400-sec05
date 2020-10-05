@@ -26,7 +26,7 @@ int avg_array( int* a, size_t size )
 
 int avg_parray( int** pa, size_t size )
 {
-  //'''' ASSIGNMENt TASK '''''''''''''''''''''''''''''''''''''''''''''''''
+  //'''' ASSIGNMENT TASK '''''''''''''''''''''''''''''''''''''''''''''''''
   // Implement this function
   //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 

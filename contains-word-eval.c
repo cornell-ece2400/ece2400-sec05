@@ -4,6 +4,16 @@
 #include <sys/time.h>
 
 //------------------------------------------------------------------------
+// Global Variables
+//------------------------------------------------------------------------
+// We almost always want to avoid global variables, but sometimes when
+// doing various profiling we have no choice. Here we declare a global
+// variable to track total heap space usage. Notice the g_ prefix naming
+// convention used to indicate a global variable.
+
+int g_heap_space_bytes = 0;
+
+//------------------------------------------------------------------------
 // strlen_
 //------------------------------------------------------------------------
 // Return the number of characters in the given string (str). The
@@ -33,6 +43,9 @@ char* strdup_( const char* str )
 
   // Allocate new string on the heap
   char* new_str = malloc( len * sizeof(char) );
+
+  // Update the global count of bytes on heap
+  // g_heap_space_bytes += len;
 
   // Copy all of the characters to new string
   for ( int i = 0; i < len; i++ )
@@ -88,7 +101,7 @@ int read_words( char** words, int max_num_words, const char* filename )
 // Search the given array of words for the given word. Return 1 if the
 // word is found, and 0 if the word is not found.
 
-int contains_word( char** words, int* lens, int num_words, const char* word )
+int contains_word( char** words, int num_words, const char* word )
 {
   for ( int i = 0; i < num_words; i++ ) {
     if ( strcmp_v1( words[i], word ) )
@@ -109,9 +122,9 @@ int main( void )
   char* words[1024];
   int num_words = read_words( words, 1024, "overview.txt" );
 
-  int lens[1024];
-  for ( int i = 0; i < num_words; i++ )
-    lens[i] = strlen_( words[i] );
+  // Ouptut heap space usage in bytes
+
+  // printf( "Heap space usage is %d bytes\n", g_heap_space_bytes );
 
   // Setup the experiment
 
@@ -130,7 +143,7 @@ int main( void )
     // Run the experiment
 
     for ( int j = 0; j < nsubtrials; j++ ) {
-      result = contains_word( words, lens, num_words, "flower" );
+      result = contains_word( words, num_words, "flower" );
     }
 
     // Stop tracking time
@@ -138,7 +151,7 @@ int main( void )
     struct timeval end;
     gettimeofday( &end, NULL );
 
-    // Calculate elapsed time
+    // Calculate elapsed time and memory usage
 
     double elapsed = ( end.tv_sec - start.tv_sec ) +
                      ( ( end.tv_usec - start.tv_usec ) / 1000000.0 );
@@ -146,7 +159,6 @@ int main( void )
     elapsed_avg += elapsed;
 
     printf( "Elapsed time for trial %d is %fs\n", i, elapsed );
-
   }
 
   // Calculate average elapsed time per trial

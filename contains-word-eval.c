@@ -60,8 +60,8 @@ char* strdup_( const char* str )
 //------------------------------------------------------------------------
 // strcmp_v1
 //------------------------------------------------------------------------
-// Compare the two given strings (str0,str1). Return 0 if all characters
-// match and zero if any characters do not match. Note that the strcmp
+// Compare the two given strings (str0,str1). Return 1 if all characters
+// match and 0 if any characters do not match. Note that the strcmp
 // function in the standard C library has different semantics.
 
 int strcmp_v1( const char* str0, const char* str1 )

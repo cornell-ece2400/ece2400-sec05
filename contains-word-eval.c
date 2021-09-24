@@ -130,7 +130,7 @@ int main( void )
 
   int    result      = -1;
   int    ntrials     = 1;
-  int    nsubtrials  = 1e5;
+  int    nsubtrials  = 1;
   double elapsed_avg = 0.0;
 
   for ( int i = 0; i < ntrials; i++ ) {

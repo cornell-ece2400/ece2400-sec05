@@ -32,7 +32,7 @@ char* strdup_( const char* str )
   int len = strlen_( str );
 
   // Allocate new string on the heap
-  char* new_str = malloc( (len+1) * sizeof(char) );
+  char* new_str = malloc( len * sizeof(char) );
 
   // Copy all of the characters to new string
   for ( int i = 0; i < len; i++ )
@@ -53,42 +53,7 @@ char* strdup_( const char* str )
 
 int strcmp_v1( const char* str0, const char* str1 )
 {
-  // Determine length of given strings
-  int len0 = strlen_( str0 );
-  int len1 = strlen_( str1 );
-
-  // If string lengths do not match, then strings to not match
-  if ( len0 != len1 )
-    return 0;
-
-  // Check each character
-  for ( int i = 0; i < len0; i++ ) {
-    if ( str0[i] != str1[i] )
-      return 0;
-  }
-
-  // Strings match!
-  return 1;
-}
-
-int strcmp_v2( const char* str0, const char* str1 )
-{
-  int i = 0;
-  int j = 0;
-
-  // Iterate until reach first null terminator
-  while ( (str0[i] != '\0') && (str1[j] != '\0') ) {
-    if ( str0[i] != str1[j] )
-      return 0;
-    i++;
-    j++;
-  }
-
-  // Final check to make sure final characters are equal
-  if ( str0[i] != str1[j] )
-    return 0;
-
-  return 1;
+  // insert code to perform string comparision here
 }
 
 //------------------------------------------------------------------------
@@ -151,7 +116,7 @@ int main( void )
   // Setup the experiment
 
   int    result      = -1;
-  int    ntrials     = 5;
+  int    ntrials     = 1;
   int    nsubtrials  = 1e5;
   double elapsed_avg = 0.0;
 
